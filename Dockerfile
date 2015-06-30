@@ -27,3 +27,4 @@ RUN apt-get update && \
     touch /bitcoin-data/.nodata
 
 VOLUME ["/bitcoin-data"]
+WORKDIR /bitcoin/bin
