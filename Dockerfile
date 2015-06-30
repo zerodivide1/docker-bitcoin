@@ -20,5 +20,10 @@ RUN apt-get update && \
     gpg --import pieterwuille.asc && \
     gpg --verify SHA256SUMS.asc && \
     grep -o "$(sha256sum $BITCOIN_DOWNLOAD_FILENAME)" SHA256SUMS.asc && \
-    tar xzvf bitcoin-$BITCOIN_VERSION-linux64.tar.gz
-RUN mv -v bitcoin-$BITCOIN_VERSION /bitcoin
+    tar xzvf $BITCOIN_DOWNLOAD_FILENAME && \
+    rm -v $BITCOIN_DOWNLOAD_FILENAME *.asc && \
+    mv -v bitcoin-$BITCOIN_VERSION /bitcoin && \
+    mkdir -p /bitcoin-data && \
+    touch /bitcoin-data/.nodata
+
+VOLUME ["/bitcoin-data"]
