@@ -26,5 +26,7 @@ RUN apt-get update && \
     mkdir -p /bitcoin-data && \
     touch /bitcoin-data/.nodata
 
+ADD start-bitcoind.sh /bitcoin/bin/start-bitcoind.sh
+
 VOLUME ["/bitcoin-data"]
 WORKDIR /bitcoin/bin
