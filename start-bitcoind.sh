@@ -12,8 +12,16 @@ Restart and specify using '-v /path/to/storage:/bitcoin-data' "
   exit 2
 fi
 
+REMAININGARGS=""
 if [ ! -z "$BITCOIN_TESTNET" ]; then
   echo "WARN: Starting bitcoind for testnet"
+  REMAININGARGS="-testnet"
 fi
 
-echo "args: $@"
+REMAININGARGS="$REMAININGARGS $@"
+
+/bitcoin/bin/bitcoind \
+  -conf=/bitcoind.conf \
+  -datadir=/bitcoin-data \
+  -printtoconsole \
+  $REMAININGARGS
