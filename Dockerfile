@@ -30,3 +30,5 @@ ADD start-bitcoind.sh /bitcoin/bin/start-bitcoind.sh
 
 VOLUME ["/bitcoin-data"]
 WORKDIR /bitcoin/bin
+
+ENTRYPOINT ["/bitcoin/bin/start-bitcoind.sh"]
