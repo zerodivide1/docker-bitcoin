@@ -28,6 +28,8 @@ RUN apt-get update && \
 
 ADD start-bitcoind.sh /bitcoin/bin/start-bitcoind.sh
 
+RUN chmod +x /bitcoin/bin/start-bitcoind.sh
+
 VOLUME ["/bitcoin-data"]
 WORKDIR /bitcoin/bin
 
