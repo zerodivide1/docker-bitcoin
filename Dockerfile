@@ -13,11 +13,13 @@ RUN apt-get update && \
     wget https://bitcoin.org/jgarzik-bitpay.asc && \
     wget https://bitcoin.org/gmaxwell.asc && \
     wget https://bitcoin.org/pieterwuille.asc && \
+    wget https://bitcoin.org/laanwj-releases.asc && \
     gpg --import laanwj.asc && \
     gpg --import gavinandresen.asc && \
     gpg --import jgarzik-bitpay.asc && \
     gpg --import gmaxwell.asc && \
     gpg --import pieterwuille.asc && \
+    gpg --import laanwj-releases.asc && \
     gpg --verify SHA256SUMS.asc && \
     grep -o "$(sha256sum $BITCOIN_DOWNLOAD_FILENAME)" SHA256SUMS.asc && \
     tar xzvf $BITCOIN_DOWNLOAD_FILENAME && \
