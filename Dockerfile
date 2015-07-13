@@ -1,7 +1,7 @@
 FROM debian:jessie
 MAINTAINER Sean Payne <seantpayne@gmail.com>
 
-ENV BITCOIN_VERSION 0.10.2
+ENV BITCOIN_VERSION 0.11.0
 ENV BITCOIN_DOWNLOAD_FILENAME bitcoin-$BITCOIN_VERSION-linux64.tar.gz
 
 RUN apt-get update && \
